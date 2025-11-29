@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Vinix7 Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-sm z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-blue-900 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-crown text-white"></i>
+                        </div>
+                        <div>
+                            <span class="text-xl font-bold text-gray-900 font-poppins">Vinix7</span>
+                            <p class="text-xs text-gray-500 -mt-1">Admin Panel</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center space-x-1 ml-8">
+                        <a href="dashboard.html" class="px-4 py-2 bg-blue-900 text-white rounded-xl font-medium transition duration-200">
+                            <i class="fas fa-chart-bar mr-2"></i>Dashboard
+                        </a>
+                        <a href="kelola-paket.html" class="px-4 py-2 text-gray-700 hover:text-blue-900 font-medium transition duration-200">
+                            <i class="fas fa-box mr-2"></i>Paket Tour
+                        </a>
+                        <a href="kelola-peserta.html" class="px-4 py-2 text-gray-700 hover:text-blue-900 font-medium transition duration-200">
+                            <i class="fas fa-users mr-2"></i>Peserta
+                        </a>
+                        <a href="settings.html" class="px-4 py-2 text-gray-700 hover:text-blue-900 font-medium transition duration-200">
+                            <i class="fas fa-cog mr-2"></i>Settings
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <div class="hidden sm:flex items-center space-x-3 text-sm text-gray-600">
+                        <i class="fas fa-user-shield text-blue-900"></i>
+                        <span>Administrator</span>
+                    </div>
+                    <div class="relative" id="userMenu">
+                        <button class="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 rounded-xl px-3 py-2 transition duration-200">
+                            <div class="w-8 h-8 bg-blue-900 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user text-white text-sm"></i>
+                            </div>
+                            <i class="fas fa-chevron-down text-gray-600 text-xs"></i>
+                        </button>
+                        
+                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-200 py-2 hidden z-50" id="dropdownMenu">
+                            <a href="settings.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 transition duration-200">
+                                <i class="fas fa-cog mr-3"></i>Settings
+                            </a>
+                            <button onclick="adminAuth.logout()" class="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-50 transition duration-200">
+                                <i class="fas fa-sign-out-alt mr-3"></i>Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-24 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
+                <p class="text-gray-600 mt-2">Overview sistem Vinix7 Study & Business Tour</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Total Peserta</p>
+                            <p class="text-3xl font-bold text-gray-900 mt-2" id="totalPeserta">0</p>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-users text-blue-900 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex items-center text-sm text-green-600">
+                        <i class="fas fa-arrow-up mr-1"></i>
+                        <span id="pesertaGrowth">0%</span>
+                        <span class="text-gray-500 ml-2">dari bulan lalu</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Pendapatan</p>
+                            <p class="text-3xl font-bold text-gray-900 mt-2" id="totalPendapatan">Rp 0</p>
+                        </div>
+                        <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-money-bill-wave text-green-900 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex items-center text-sm text-green-600">
+                        <i class="fas fa-arrow-up mr-1"></i>
+                        <span id="pendapatanGrowth">0%</span>
+                        <span class="text-gray-500 ml-2">dari bulan lalu</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Pending Verification</p>
+                            <p class="text-3xl font-bold text-yellow-600 mt-2" id="pendingVerification">0</p>
+                        </div>
+                        <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-clock text-yellow-600 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <a href="kelola-peserta.html?filter=pending" class="text-sm text-blue-900 font-medium hover:underline">
+                            Lihat semua →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Paket Aktif</p>
+                            <p class="text-3xl font-bold text-gray-900 mt-2" id="paketAktif">0</p>
+                        </div>
+                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-box text-purple-900 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <a href="kelola-paket.html" class="text-sm text-blue-900 font-medium hover:underline">
+                            Kelola paket →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts and Tables -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Recent Pendaftaran -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-gray-900">Pendaftaran Terbaru</h2>
+                        <a href="kelola-peserta.html" class="text-sm text-blue-900 font-medium hover:underline">
+                            Lihat semua
+                        </a>
+                    </div>
+                    <div class="space-y-4" id="recentPendaftaran">
+                        <!-- Data akan diisi oleh JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Paket Performance -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-gray-900">Performance Paket</h2>
+                        <a href="kelola-paket.html" class="text-sm text-blue-900 font-medium hover:underline">
+                            Kelola paket
+                        </a>
+                    </div>
+                    <div class="space-y-4" id="paketPerformance">
+                        <!-- Data akan diisi oleh JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="mt-8 bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-6">Quick Actions</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <a href="kelola-paket.html?action=tambah" class="bg-blue-50 hover:bg-blue-100 rounded-xl p-4 text-center transition duration-200 border-2 border-dashed border-blue-200">
+                        <i class="fas fa-plus-circle text-blue-900 text-2xl mb-2"></i>
+                        <p class="text-sm font-medium text-blue-900">Tambah Paket</p>
+                    </a>
+                    <a href="kelola-peserta.html?filter=pending" class="bg-yellow-50 hover:bg-yellow-100 rounded-xl p-4 text-center transition duration-200">
+                        <i class="fas fa-clock text-yellow-600 text-2xl mb-2"></i>
+                        <p class="text-sm font-medium text-yellow-900">Verifikasi Peserta</p>
+                    </a>
+                    <a href="kelola-peserta.html" class="bg-green-50 hover:bg-green-100 rounded-xl p-4 text-center transition duration-200">
+                        <i class="fas fa-users text-green-900 text-2xl mb-2"></i>
+                        <p class="text-sm font-medium text-green-900">Kelola Peserta</p>
+                    </a>
+                    <a href="settings.html" class="bg-gray-50 hover:bg-gray-100 rounded-xl p-4 text-center transition duration-200">
+                        <i class="fas fa-cog text-gray-900 text-2xl mb-2"></i>
+                        <p class="text-sm font-medium text-gray-900">Pengaturan</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+
+    <!-- Firebase Config (path ke root) -->
+    <script src="../js/firebase-config.js"></script>
+
+    <!-- Hybrid Storage (path ke root) -->
+    <script src="../js/hybrid-storage.js"></script>
+
+    <!-- Existing admin scripts -->
+    <script src="../js/storage.js"></script>
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+</body>
+</html>
