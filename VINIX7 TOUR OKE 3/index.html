@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinix7 Study & Business Tour - Program Business Learning untuk Mahasiswa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-inter bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 transition-all duration-300 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center space-x-3 cursor-pointer group">
+                        <div class="flex items-center justify-center">
+                            <img src="images/logo.png" 
+                                 alt="Vinix7 Logo" 
+                                 class="w-32 h-32 max-w-[120px] max-h-[120px] object-contain"
+                                 onerror="this.style.display='none';">
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-gray-900 font-poppins">Tour</span>
+                            <p class="text-xs text-gray-500 -mt-1">Study & Business</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#beranda" class="text-gray-700 hover:text-[#002B82] font-medium transition duration-200 cursor-pointer">Beranda</a>
+                    <a href="#paket" class="text-gray-700 hover:text-[#002B82] font-medium transition duration-200 cursor-pointer">Paket Tour</a>
+                    <a href="#keunggulan" class="text-gray-700 hover:text-[#002B82] font-medium transition duration-200 cursor-pointer">Keunggulan</a>
+                    <a href="#testimonial" class="text-gray-700 hover:text-[#002B82] font-medium transition duration-200 cursor-pointer">Testimonial</a>
+                    <a href="cek-status.html" class="text-gray-700 hover:text-[#002B82] font-medium transition duration-200 cursor-pointer">
+                        <i class="fas fa-search mr-1"></i>Cek Status
+                    </a>
+                    <a href="pendaftaran.html" class="bg-[#002B82] hover:bg-[#001a4d] text-white font-medium py-3 px-6 rounded-2xl transition duration-300 cursor-pointer">
+                        <i class="fas fa-rocket mr-2"></i>Daftar Sekarang
+                    </a>
+                </div>
+
+                <div class="lg:hidden">
+                    <button type="button" class="text-gray-700 cursor-pointer p-2 rounded-2xl hover:bg-gray-100 transition duration-200" id="mobileMenuButton">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:hidden hidden bg-white border-t border-gray-200 shadow-lg" id="mobileMenu">
+            <div class="px-4 py-6 space-y-4">
+                <a href="index.html" class="block text-gray-700 hover:text-[#002B82] font-medium cursor-pointer py-3 px-4 rounded-2xl hover:bg-gray-50 transition duration-200">Beranda</a>
+                <a href="index.html#paket" class="block text-gray-700 hover:text-[#002B82] font-medium cursor-pointer py-3 px-4 rounded-2xl hover:bg-gray-50 transition duration-200">Paket Tour</a>
+                <a href="index.html#keunggulan" class="block text-gray-700 hover:text-[#002B82] font-medium cursor-pointer py-3 px-4 rounded-2xl hover:bg-gray-50 transition duration-200">Keunggulan</a>
+                <a href="index.html#testimonial" class="block text-gray-700 hover:text-[#002B82] font-medium cursor-pointer py-3 px-4 rounded-2xl hover:bg-gray-50 transition duration-200">Testimonial</a>
+                <a href="cek-status.html" class="block text-gray-700 hover:text-[#002B82] font-medium cursor-pointer py-3 px-4 rounded-2xl hover:bg-gray-50 transition duration-200">
+                    <i class="fas fa-search mr-2"></i>Cek Status
+                </a>
+                <a href="pendaftaran.html" class="block bg-[#002B82] hover:bg-[#001a4d] text-white font-medium py-3 px-6 rounded-2xl text-center cursor-pointer transition duration-300">
+                    <i class="fas fa-rocket mr-2"></i>Daftar Sekarang
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section id="beranda" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 relative overflow-hidden">
+            <div class="absolute inset-0 bg-black opacity-80"></div>
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                 alt="University Students" 
+                 class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/60"></div>
+            
+            <div class="max-w-6xl mx-auto px-6 text-center relative z-10 py-20">
+                <div class="animate-fade-in">
+                    <div class="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 mb-12 border border-white/30">
+                        <i class="fas fa-graduation-cap text-white mr-3"></i>
+                        <span class="text-white font-semibold text-sm">Program Business Learning untuk Mahasiswa</span>
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-8 font-poppins leading-tight">
+                        Vinix7
+                        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white mt-4">
+                            Study & Business Tour
+                        </span>
+                    </h1>
+                    
+                    <p class="text-xl md:text-2xl text-blue-100 mb-16 max-w-3xl mx-auto leading-relaxed">
+                        Transformasi pengalaman akademik menjadi kesuksesan karir nyata melalui program business learning eksklusif di Yogyakarta.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20">
+                        <a href="pendaftaran.html" class="bg-white text-blue-900 hover:bg-blue-50 font-semibold text-lg px-12 py-6 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl shadow-lg">
+                            <i class="fas fa-rocket mr-3"></i>
+                            Daftar Sekarang
+                        </a>
+                        <a href="#paket" class="border-2 border-white text-white hover:bg-white hover:text-blue-900 font-semibold text-lg px-12 py-6 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="fas fa-eye mr-3"></i>
+                            Lihat Paket
+                        </a>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-2xl mx-auto">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-white mb-2">500+</div>
+                            <div class="text-blue-200 text-sm">Alumni</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-white mb-2">50+</div>
+                            <div class="text-blue-200 text-sm">Perusahaan Mitra</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-white mb-2">98%</div>
+                            <div class="text-blue-200 text-sm">Kepuasan</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-white mb-2">4.9/5</div>
+                            <div class="text-blue-200 text-sm">Rating</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+                <a href="#paket" class="animate-bounce inline-block bg-white/20 backdrop-blur-sm rounded-full p-4 border border-white/30 hover:bg-white/30 transition duration-300">
+                    <i class="fas fa-chevron-down text-white text-xl"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Paket Section -->
+        <section id="paket" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-20">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-poppins">
+                        Pilihan Paket Eksklusif
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                        Temukan program yang sesuai dengan aspirasi karir dan kebutuhan belajar Anda
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="paketGrid">
+                    <!-- Paket cards akan diload oleh JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Keunggulan Section -->
+        <section id="keunggulan" class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-20">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-poppins">
+                        Keunggulan Program
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                        Mengapa mahasiswa memilih Vinix7 untuk pengembangan karir mereka
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="w-20 h-20 bg-blue-900 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-6">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Industry Experience</h3>
+                        <p class="text-gray-600 leading-relaxed">Pengalaman langsung di perusahaan mitra terkemuka dengan akses eksklusif ke proses bisnis nyata</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="w-20 h-20 bg-blue-900 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-6">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Professional Network</h3>
+                        <p class="text-gray-600 leading-relaxed">Jaringan dengan profesional industri dan mahasiswa terpilih dari seluruh Indonesia</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="w-20 h-20 bg-blue-900 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-6">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Practical Skill Development</h3>
+                        <p class="text-gray-600 leading-relaxed">Pengembangan skill praktis dan insight industri terkini yang langsung applicable di dunia kerja</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="w-20 h-20 bg-blue-900 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-6">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Career Advancement</h3>
+                        <p class="text-gray-600 leading-relaxed">Pengembangan karir melalui mentorship praktis dan peluang internship di perusahaan mitra</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section id="testimonial" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-20">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-poppins">
+                        Testimonial Alumni
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                        Pengalaman transformatif dari mahasiswa yang telah mengikuti program
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 hover:shadow-xl transition-all duration-300">
+                        <div class="flex items-center mb-6">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" 
+                                 alt="Ahmad Surya" 
+                                 class="w-16 h-16 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Ahmad Surya</h4>
+                                <p class="text-gray-500 text-sm">Universitas Gadjah Mada</p>
+                            </div>
+                        </div>
+                        <div class="text-yellow-400 mb-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 italic leading-relaxed">
+                            "Program yang sangat berkesan! Insight dari kunjungan industri memberikan perspektif baru tentang dunia kerja yang tidak didapat di bangku kuliah."
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 hover:shadow-xl transition-all duration-300">
+                        <div class="flex items-center mb-6">
+                            <img src="https://images.unsplash.com/photo-1590070572368-74a1e6da0a34?q=80&w=386&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                                 alt="Dina Maulida" 
+                                 class="w-16 h-16 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Dina Maulida</h4>
+                                <p class="text-gray-500 text-sm">Universitas Indonesia</p>
+                            </div>
+                        </div>
+                        <div class="text-yellow-400 mb-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="text-gray-600 italic leading-relaxed">
+                            "Networking yang terbangun sangat valuable. Sekarang saya punya koneksi profesional yang sangat membantu perkembangan karir saya."
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 hover:shadow-xl transition-all duration-300">
+                        <div class="flex items-center mb-6">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" 
+                                 alt="Rizki Fauzi" 
+                                 class="w-16 h-16 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Rizki Fauzi</h4>
+                                <p class="text-gray-500 text-sm">Institut Teknologi Bandung</p>
+                            </div>
+                        </div>
+                        <div class="text-yellow-400 mb-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 italic leading-relaxed">
+                            "Public speaking workshop sangat membantu meningkatkan kepercayaan diri. Kini saya lebih percaya diri presentasi di depan umum dan klien."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="daftar" class="py-24 bg-blue-900 text-white">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 font-poppins">
+                    Siap Memulai Perjalanan Karir Anda?
+                </h2>
+                <p class="text-xl text-blue-100 mb-12 max-w-2xl mx-auto leading-relaxed">
+                    Bergabunglah dengan ratusan mahasiswa yang telah mengalami transformasi karir melalui Vinix7 Study & Business Tour.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="pendaftaran.html" class="bg-white text-blue-900 hover:bg-blue-50 font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl">
+                        Daftar Sekarang
+                    </a>
+                    <a href="https://wa.me/6281234567890" target="_blank" class="border-2 border-white text-white hover:bg-white hover:text-blue-900 font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-300 transform hover:-translate-y-1">
+                        Konsultasi Gratis
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="flex items-center justify-center">
+                            <img src="images/logo.png" 
+                                alt="Vinix7 Logo" 
+                                class="w-20 h-20 max-w-[80px] max-h-[80px] object-contain"
+                                onerror="this.style.display='none';">
+                        </div>
+                        <div>
+                            <span class="text-xl font-bold font-poppins">Tour</span>
+                            <p class="text-sm text-gray-400 -mt-1">Study & Business</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md leading-relaxed">
+                        Program business learning eksklusif di Yogyakarta untuk pengembangan karir mahasiswa melalui pengalaman industri langsung dan mentorship profesional.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-[#002B82] rounded-xl flex items-center justify-center text-white transition duration-300 cursor-pointer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-[#002B82] rounded-xl flex items-center justify-center text-white transition duration-300 cursor-pointer">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-[#002B82] rounded-xl flex items-center justify-center text-white transition duration-300 cursor-pointer">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 font-poppins">Kontak Kami</h3>
+                    <div class="space-y-3 text-gray-300">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-[#002B82] mr-3 w-5"></i>
+                            <a href="#" data-contact-info="email" id="contactEmail">info@vinix7.com</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-[#002B82] mr-3 w-5"></i>
+                            <a href="#" data-contact-info="phone" id="contactPhone">+62 812-3456-7890</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-[#002B82] mr-3 w-5"></i>
+                            <span>Yogyakarta, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 font-poppins">Tautan Cepat</h3>
+                    <div class="space-y-3">
+                        <a href="#paket" class="block text-gray-300 hover:text-white transition duration-200 cursor-pointer">Paket Tour</a>
+                        <a href="#keunggulan" class="block text-gray-300 hover:text-white transition duration-200 cursor-pointer">Keunggulan Program</a>
+                        <a href="#testimonial" class="block text-gray-300 hover:text-white transition duration-200 cursor-pointer">Testimonial</a>
+                        <a href="pendaftaran.html" class="block text-gray-300 hover:text-white transition duration-200 cursor-pointer">Daftar Sekarang</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 <span id="footerSiteTitle">Vinix7 Study & Business Tour</span>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Paket Detail Modal -->
+    <div id="paketModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 overflow-y-auto transition-opacity duration-300">
+        <div class="min-h-screen px-4 py-8 flex items-center justify-center">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                <!-- Modal content akan diload oleh JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+
+    <!-- Firebase Config & Storage -->
+    <script src="js/firebase-config.js"></script>
+
+    <!-- Hybrid Storage -->
+    <script src="js/hybrid-storage.js"></script>
+
+    <!-- Existing localStorage scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

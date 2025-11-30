@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran - Vinix7 Study & Business Tour</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-inter bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 transition-all duration-300 border-b border-gray-100 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-3 cursor-pointer group">
+                        <div class="flex items-center justify-center">
+                            <img src="images/logo.png" 
+                                 alt="Vinix7 Logo" 
+                                 class="w-32 h-32 max-w-[120px] max-h-[120px] object-contain"
+                                 onerror="this.style.display='none';">
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-gray-900 font-poppins">Tour</span>
+                            <p class="text-xs text-gray-500 -mt-1">Study & Business</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-[#002B82] font-medium transition duration-200 cursor-pointer">Beranda</a>
+                    <a href="index.html#paket" class="text-gray-700 hover:text-[#002B82] font-medium transition duration-200 cursor-pointer">Paket Tour</a>
+                    <a href="index.html#keunggulan" class="text-gray-700 hover:text-[#002B82] font-medium transition duration-200 cursor-pointer">Keunggulan</a>
+                    <a href="index.html#testimonial" class="text-gray-700 hover:text-[#002B82] font-medium transition duration-200 cursor-pointer">Testimonial</a>
+                    <a href="cek-status.html" class="text-gray-700 hover:text-[#002B82] font-medium transition duration-200 cursor-pointer">
+                        <i class="fas fa-search mr-1"></i>Cek Status
+                    </a>
+                    <a href="pendaftaran.html" class="bg-[#002B82] hover:bg-[#001a4d] text-white font-medium py-3 px-6 rounded-2xl transition duration-300 cursor-pointer">
+                        <i class="fas fa-rocket mr-2"></i>Daftar Sekarang
+                    </a>
+                </div>
+
+                <div class="lg:hidden">
+                    <button type="button" class="text-gray-700 cursor-pointer p-2 rounded-2xl hover:bg-gray-100 transition duration-200" id="mobileMenuButton">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:hidden hidden bg-white border-t border-gray-200 shadow-lg" id="mobileMenu">
+            <div class="px-4 py-6 space-y-4">
+                <a href="index.html" class="block text-gray-700 hover:text-[#002B82] font-medium cursor-pointer py-3 px-4 rounded-2xl hover:bg-gray-50 transition duration-200">Beranda</a>
+                <a href="index.html#paket" class="block text-gray-700 hover:text-[#002B82] font-medium cursor-pointer py-3 px-4 rounded-2xl hover:bg-gray-50 transition duration-200">Paket Tour</a>
+                <a href="index.html#keunggulan" class="block text-gray-700 hover:text-[#002B82] font-medium cursor-pointer py-3 px-4 rounded-2xl hover:bg-gray-50 transition duration-200">Keunggulan</a>
+                <a href="index.html#testimonial" class="block text-gray-700 hover:text-[#002B82] font-medium cursor-pointer py-3 px-4 rounded-2xl hover:bg-gray-50 transition duration-200">Testimonial</a>
+                <a href="cek-status.html" class="block text-gray-700 hover:text-[#002B82] font-medium cursor-pointer py-3 px-4 rounded-2xl hover:bg-gray-50 transition duration-200">
+                    <i class="fas fa-search mr-2"></i>Cek Status
+                </a>
+                <a href="pendaftaran.html" class="block bg-[#002B82] hover:bg-[#001a4d] text-white font-medium py-3 px-6 rounded-2xl text-center cursor-pointer transition duration-300">
+                    <i class="fas fa-rocket mr-2"></i>Daftar Sekarang
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Form -->
+    <section class="pt-32 pb-16 bg-gray-50 min-h-screen" id="registrationSection">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 font-poppins">
+                    Formulir Pendaftaran
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+                    Isi formulir berikut untuk bergabung dengan Vinix7 Study & Business Tour
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 md:p-8">
+                <form id="registrationForm" class="space-y-8">
+                    <!-- Step 1: Data Diri -->
+                    <div class="form-step active" id="step1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Data Diri</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                            <div class="form-group">
+                                <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap *</label>
+                                <input type="text" id="nama" class="input-field" placeholder="Masukkan nama lengkap" required>
+                                <div class="error-message hidden mt-1 text-sm text-red-600" id="namaError"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                                <input type="email" id="email" class="input-field" placeholder="email@example.com" required>
+                                <div class="error-message hidden mt-1 text-sm text-red-600" id="emailError"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="universitas" class="block text-sm font-medium text-gray-700 mb-2">Universitas *</label>
+                                <input type="text" id="universitas" class="input-field" placeholder="Nama universitas" required>
+                                <div class="error-message hidden mt-1 text-sm text-red-600" id="universitasError"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="jurusan" class="block text-sm font-medium text-gray-700 mb-2">Jurusan *</label>
+                                <input type="text" id="jurusan" class="input-field" placeholder="Jurusan studi" required>
+                                <div class="error-message hidden mt-1 text-sm text-red-600" id="jurusanError"></div>
+                            </div>
+                            
+                            <div class="form-group md:col-span-2">
+                                <label for="telepon" class="block text-sm font-medium text-gray-700 mb-2">Nomor HP/WhatsApp *</label>
+                                <input type="tel" id="telepon" class="input-field" placeholder="Contoh: 081234567890" required>
+                                <div class="error-message hidden mt-1 text-sm text-red-600" id="teleponError"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-end mt-8">
+                            <button type="button" class="btn-primary next-step w-full md:w-auto" data-next="step2">
+                                Lanjut <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Pilih Paket -->
+                    <div class="form-step hidden" id="step2">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Pilih Paket</h2>
+                        
+                        <div class="form-group">
+                            <label for="paket" class="block text-sm font-medium text-gray-700 mb-2">Pilih Paket Tour *</label>
+                            <select id="paket" class="input-field" required>
+                                <option value="">-- Pilih Paket --</option>
+                                <!-- Options akan diisi oleh JavaScript -->
+                            </select>
+                            <div class="error-message hidden mt-1 text-sm text-red-600" id="paketError"></div>
+                        </div>
+                        
+                        <div id="paketInfo" class="hidden">
+                            <div class="bg-blue-50 rounded-2xl p-4 md:p-6 mt-4">
+                                <h3 class="text-lg md:text-xl font-semibold text-blue-900 mb-3" id="selectedPaketName"></h3>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 text-sm">
+                                    <div>
+                                        <strong>Harga:</strong> <span id="selectedPaketHarga" class="text-blue-900 font-semibold"></span>
+                                    </div>
+                                    <div>
+                                        <strong>Durasi:</strong> <span id="selectedPaketDurasi"></span>
+                                    </div>
+                                    <div>
+                                        <strong>Tanggal:</strong> <span id="selectedPaketTanggal"></span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 mt-3 text-sm" id="selectedPaketDeskripsi"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col md:flex-row justify-between gap-4 mt-8">
+                            <button type="button" class="btn-secondary prev-step w-full md:w-auto" data-prev="step1">
+                                <i class="fas fa-arrow-left mr-2"></i>Kembali
+                            </button>
+                            <button type="button" class="btn-primary next-step w-full md:w-auto" data-next="step3">
+                                Lanjut <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Konfirmasi & Pembayaran -->
+                    <div class="form-step hidden" id="step3">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Konfirmasi & Pembayaran</h2>
+                        
+                        <div class="bg-blue-50 rounded-2xl p-4 md:p-6 mb-6">
+                            <h3 class="text-lg font-semibold text-blue-900 mb-4 flex items-center">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                Informasi Pembayaran
+                            </h3>
+                            <div class="space-y-3 text-blue-800 text-sm">
+                                <p><strong>Transfer ke Rekening Vinix7:</strong></p>
+                                <div class="bg-white rounded-xl p-4">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 text-sm">
+                                        <div class="flex flex-col space-y-1">
+                                            <span class="font-semibold">Bank:</span>
+                                            <span id="bankNameDisplay">BCA</span>
+                                        </div>
+                                        <div class="flex flex-col space-y-1">
+                                            <span class="font-semibold">No. Rekening:</span>
+                                            <span id="bankAccountDisplay" class="font-mono">1234 5678 9012</span>
+                                        </div>
+                                        <div class="flex flex-col space-y-1">
+                                            <span class="font-semibold">Atas Nama:</span>
+                                            <span id="accountNameDisplay">PT. Vinix7 Indonesia</span>
+                                        </div>
+                                        <div class="flex flex-col space-y-1">
+                                            <span class="font-semibold">Total:</span>
+                                            <span id="paymentAmount" class="text-green-600 font-bold text-lg"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-3 text-sm"><strong>Setelah transfer, upload bukti transfer di bawah.</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- Upload Bukti Transfer -->
+                        <div class="form-group mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-4">Upload Bukti Transfer *</label>
+                            <div class="border-2 border-dashed border-gray-300 rounded-2xl p-6 md:p-8 text-center hover:border-blue-900 transition duration-200" id="uploadArea">
+                                <input type="file" id="buktiTransfer" accept="image/*,.pdf" class="hidden">
+                                <div class="space-y-4">
+                                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto">
+                                        <i class="fas fa-cloud-upload-alt text-blue-900 text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-lg font-semibold text-gray-900">Upload Bukti Transfer</p>
+                                        <p class="text-gray-600 text-sm mt-1">Format: JPG, PNG, atau PDF (Maks. 5MB)</p>
+                                    </div>
+                                    <button type="button" onclick="document.getElementById('buktiTransfer').click()" class="btn-primary px-8 py-3">
+                                        <i class="fas fa-upload mr-2"></i>Pilih File
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="filePreview" class="hidden mt-4">
+                                <div class="bg-green-50 rounded-2xl p-4 md:p-6">
+                                    <div class="flex flex-col md:flex-row md:items-center md:justify-between space-y-3 md:space-y-0">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-file-invoice text-green-600 text-xl mr-3 flex-shrink-0"></i>
+                                            <div class="min-w-0">
+                                                <p class="font-semibold text-green-900 truncate" id="fileName">file.jpg</p>
+                                                <p class="text-green-700 text-sm">Bukti transfer berhasil diupload</p>
+                                            </div>
+                                        </div>
+                                        <button type="button" onclick="removeFile()" class="text-red-600 hover:text-red-700 md:ml-4 flex items-center justify-center md:justify-start">
+                                            <i class="fas fa-times mr-1"></i>Hapus
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="fileError" class="hidden mt-2">
+                                <p class="error-message">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <span id="errorMessage">Harap upload bukti transfer</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Data Review -->
+                        <div class="bg-gray-50 rounded-2xl p-4 md:p-6 mb-6">
+                            <h3 class="font-semibold text-gray-900 mb-4 text-lg">Data Pendaftaran Anda</h3>
+                            <div class="space-y-4 text-sm">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="space-y-3">
+                                        <div class="flex flex-col">
+                                            <span class="text-gray-600 font-medium mb-1">Nama:</span>
+                                            <span class="font-semibold text-gray-900" id="reviewNama"></span>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <span class="text-gray-600 font-medium mb-1">Email:</span>
+                                            <span class="font-semibold text-gray-900" id="reviewEmail"></span>
+                                        </div>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <div class="flex flex-col">
+                                            <span class="text-gray-600 font-medium mb-1">Universitas:</span>
+                                            <span class="font-semibold text-gray-900" id="reviewUniversitas"></span>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <span class="text-gray-600 font-medium mb-1">Paket:</span>
+                                            <span class="font-semibold text-gray-900" id="reviewPaket"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border-t pt-4 mt-2">
+                                    <div class="flex flex-col">
+                                        <span class="text-gray-600 font-medium mb-1">Total Pembayaran:</span>
+                                        <span class="font-semibold text-green-600 text-lg" id="reviewTotal"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Next Steps Info -->
+                        <div class="bg-yellow-50 rounded-2xl p-4 md:p-6 mb-6">
+                            <h3 class="font-semibold text-yellow-900 mb-3 text-lg">Proses Selanjutnya</h3>
+                            <div class="space-y-3 text-sm text-yellow-800">
+                                <div class="flex items-start">
+                                    <span class="bg-yellow-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5 flex-shrink-0">1</span>
+                                    <span>Setelah upload bukti, status Anda: <strong>"Menunggu Verifikasi"</strong></span>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-yellow-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5 flex-shrink-0">2</span>
+                                    <span>Tim akan verifikasi bukti transfer dalam 1x24 jam</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-yellow-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5 flex-shrink-0">3</span>
+                                    <span>Anda dapat mengecek status pendaftaran di halaman <a href="cek-status.html" class="underline font-semibold">Cek Status</a></span>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-yellow-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5 flex-shrink-0">4</span>
+                                    <span>Jika ada kendala, hubungi: <strong id="contactPhoneDisplay">+62 812-3456-7890</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col md:flex-row justify-between gap-4 mt-8">
+                            <button type="button" class="btn-secondary prev-step order-2 md:order-1 w-full md:w-auto py-3 px-6" data-prev="step2">
+                                <i class="fas fa-arrow-left mr-2"></i>Kembali
+                            </button>
+                            <button type="button" class="btn-primary order-1 md:order-2 w-full md:w-auto py-3 px-8 text-center" onclick="processRegistration()">
+                                <i class="fas fa-paper-plane mr-2"></i>Kirim Pendaftaran & Bukti
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="flex items-center justify-center">
+                            <img src="images/logo.png" 
+                                alt="Vinix7 Logo" 
+                                class="w-20 h-20 max-w-[80px] max-h-[80px] object-contain"
+                                onerror="this.style.display='none';">
+                        </div>
+                        <div>
+                            <span class="text-xl font-bold font-poppins" id="siteTitle">Tour</span>
+                            <p class="text-sm text-gray-400 -mt-1">Study & Business</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md leading-relaxed">
+                        Program business learning eksklusif di Yogyakarta untuk pengembangan karir mahasiswa melalui pengalaman industri langsung dan mentorship profesional.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-[#002B82] rounded-xl flex items-center justify-center text-white transition duration-300 cursor-pointer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-[#002B82] rounded-xl flex items-center justify-center text-white transition duration-300 cursor-pointer">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-[#002B82] rounded-xl flex items-center justify-center text-white transition duration-300 cursor-pointer">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 font-poppins">Kontak Kami</h3>
+                    <div class="space-y-3 text-gray-300">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-[#002B82] mr-3 w-5"></i>
+                            <a href="#" data-contact-info="email" id="contactEmail">info@vinix7.com</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-[#002B82] mr-3 w-5"></i>
+                            <a href="#" data-contact-info="phone" id="contactPhone">+62 812-3456-7890</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-[#002B82] mr-3 w-5"></i>
+                            <span>Yogyakarta, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 font-poppins">Tautan Cepat</h3>
+                    <div class="space-y-3">
+                        <a href="#paket" class="block text-gray-300 hover:text-white transition duration-200 cursor-pointer">Paket Tour</a>
+                        <a href="#keunggulan" class="block text-gray-300 hover:text-white transition duration-200 cursor-pointer">Keunggulan Program</a>
+                        <a href="#testimonial" class="block text-gray-300 hover:text-white transition duration-200 cursor-pointer">Testimonial</a>
+                        <a href="pendaftaran.html" class="block text-gray-300 hover:text-white transition duration-200 cursor-pointer">Daftar Sekarang</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 <span id="footerSiteTitle">Vinix7 Study & Business Tour</span>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Hybrid Storage -->
+    <script src="js/hybrid-storage.js"></script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+
+    <!-- Firebase Config -->
+    <script src="js/firebase-config.js"></script>
+
+    <!-- Existing scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/payment.js"></script>
+    <script src="js/registration.js"></script>
+</body>
+</html>
