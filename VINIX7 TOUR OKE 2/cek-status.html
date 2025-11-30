@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Status - Vinix7 Study & Business Tour</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-inter bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 transition-all duration-300 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-3 cursor-pointer group">
+                        <div class="flex items-center justify-center">
+                            <img src="images/logo.png" 
+                                 alt="Vinix7 Logo" 
+                                 class="w-32 h-32 max-w-[120px] max-h-[120px] object-contain"
+                                 onerror="this.style.display='none';">
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-gray-900 font-poppins">Tour</span>
+                            <p class="text-xs text-gray-500 -mt-1">Study & Business</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-[#002B82] font-medium transition duration-200 cursor-pointer">Beranda</a>
+                    <a href="index.html#paket" class="text-gray-700 hover:text-[#002B82] font-medium transition duration-200 cursor-pointer">Paket Tour</a>
+                    <a href="index.html#keunggulan" class="text-gray-700 hover:text-[#002B82] font-medium transition duration-200 cursor-pointer">Keunggulan</a>
+                    <a href="index.html#testimonial" class="text-gray-700 hover:text-[#002B82] font-medium transition duration-200 cursor-pointer">Testimonial</a>
+                    <a href="cek-status.html" class="text-gray-700 hover:text-[#002B82] font-medium transition duration-200 cursor-pointer">
+                        <i class="fas fa-search mr-1"></i>Cek Status
+                    </a>
+                    <a href="pendaftaran.html" class="bg-[#002B82] hover:bg-[#001a4d] text-white font-medium py-3 px-6 rounded-2xl transition duration-300 cursor-pointer">
+                        <i class="fas fa-rocket mr-2"></i>Daftar Sekarang
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden">
+                    <button type="button" class="text-gray-700 cursor-pointer p-2 rounded-2xl hover:bg-gray-100 transition duration-200" id="mobileMenuButton">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="lg:hidden hidden bg-white border-t border-gray-200 shadow-lg" id="mobileMenu">
+            <div class="px-4 py-6 space-y-4">
+                <a href="index.html" class="block text-gray-700 hover:text-[#002B82] font-medium cursor-pointer py-3 px-4 rounded-2xl hover:bg-gray-50 transition duration-200">Beranda</a>
+                <a href="index.html#paket" class="block text-gray-700 hover:text-[#002B82] font-medium cursor-pointer py-3 px-4 rounded-2xl hover:bg-gray-50 transition duration-200">Paket Tour</a>
+                <a href="index.html#keunggulan" class="block text-gray-700 hover:text-[#002B82] font-medium cursor-pointer py-3 px-4 rounded-2xl hover:bg-gray-50 transition duration-200">Keunggulan</a>
+                <a href="index.html#testimonial" class="block text-gray-700 hover:text-[#002B82] font-medium cursor-pointer py-3 px-4 rounded-2xl hover:bg-gray-50 transition duration-200">Testimonial</a>
+                <a href="cek-status.html" class="block text-gray-700 hover:text-[#002B82] font-medium cursor-pointer py-3 px-4 rounded-2xl hover:bg-gray-50 transition duration-200">
+                    <i class="fas fa-search mr-2"></i>Cek Status
+                </a>
+                <a href="pendaftaran.html" class="block bg-[#002B82] hover:bg-[#001a4d] text-white font-medium py-3 px-6 rounded-2xl text-center cursor-pointer transition duration-300">
+                    <i class="fas fa-rocket mr-2"></i>Daftar Sekarang
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Status Check Section -->
+    <section class="pt-32 pb-16 bg-gray-50 min-h-screen">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-poppins">
+                    Cek Status Pendaftaran
+                </h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Pantau status pendaftaran dan verifikasi Anda
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 md:p-8">
+                <!-- Tab Navigation -->
+                <div class="flex border-b border-gray-200 mb-6">
+                    <button id="kodeTab" onclick="showTab('kode')" class="flex-1 py-4 px-6 text-center font-semibold rounded-t-lg bg-blue-900 text-white">
+                        <i class="fas fa-qrcode mr-2"></i>Cek dengan Kode
+                    </button>
+                    <button id="recoveryTab" onclick="showTab('recovery')" class="flex-1 py-4 px-6 text-center font-semibold rounded-t-lg bg-gray-200 text-gray-700">
+                        <i class="fas fa-key mr-2"></i>Lupa Kode
+                    </button>
+                </div>
+
+                <!-- Kode Tab Content -->
+                <div id="kodeContent">
+                    <div class="max-w-md mx-auto">
+                        <div class="form-group mb-6">
+                            <label for="kodePendaftaran" class="block text-sm font-medium text-gray-700 mb-2">Kode Pendaftaran *</label>
+                            <input type="text" id="kodePendaftaran" class="input-field" placeholder="Masukkan kode pendaftaran (contoh: VX7-ABC123)" required>
+                            <div class="error-message hidden mt-1 text-sm text-red-600" id="kodeError"></div>
+                        </div>
+                        
+                        <button type="button" class="btn-primary w-full" onclick="cekStatus()">
+                            <i class="fas fa-search mr-2"></i>Cek Status
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recovery Tab Content -->
+                <div id="recoveryContent" class="hidden">
+                    <div class="max-w-md mx-auto">
+                        <div class="mb-4">
+                            <p class="text-gray-600 text-sm mb-4">
+                                Masukkan email yang digunakan saat pendaftaran. Kami akan mengirimkan kode OTP untuk verifikasi.
+                            </p>
+                        </div>
+
+                        <div class="form-group mb-6">
+                            <label for="emailRecovery" class="block text-sm font-medium text-gray-700 mb-2">Email Terdaftar *</label>
+                            <input type="email" id="emailRecovery" class="input-field" placeholder="email@example.com" required>
+                        </div>
+
+                        <div class="error-message hidden mt-1 text-sm text-red-600" id="recoveryError"></div>
+                        
+                        <button type="button" class="btn-primary w-full" onclick="recoveryKode()">
+                            <i class="fas fa-key mr-2"></i>Dapatkan Kode Pendaftaran
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="statusResult" class="hidden mt-8">
+                    <!-- Status result will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="flex items-center justify-center">
+                            <img src="images/logo.png" 
+                                alt="Vinix7 Logo" 
+                                class="w-20 h-20 max-w-[80px] max-h-[80px] object-contain"
+                                onerror="this.style.display='none';">
+                        </div>
+                        <div>
+                            <span class="text-xl font-bold font-poppins" id="siteTitle">Tour</span>
+                            <p class="text-sm text-gray-400 -mt-1">Study & Business</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md leading-relaxed">
+                        Program business learning eksklusif di Yogyakarta untuk pengembangan karir mahasiswa melalui pengalaman industri langsung dan mentorship profesional.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-[#002B82] rounded-xl flex items-center justify-center text-white transition duration-300 cursor-pointer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-[#002B82] rounded-xl flex items-center justify-center text-white transition duration-300 cursor-pointer">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-[#002B82] rounded-xl flex items-center justify-center text-white transition duration-300 cursor-pointer">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 font-poppins">Kontak Kami</h3>
+                    <div class="space-y-3 text-gray-300">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-[#002B82] mr-3 w-5"></i>
+                            <a href="#" data-contact-info="email" id="contactEmail">info@vinix7.com</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-[#002B82] mr-3 w-5"></i>
+                            <a href="#" data-contact-info="phone" id="contactPhone">+62 812-3456-7890</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-[#002B82] mr-3 w-5"></i>
+                            <span>Yogyakarta, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 font-poppins">Tautan Cepat</h3>
+                    <div class="space-y-3">
+                        <a href="#paket" class="block text-gray-300 hover:text-white transition duration-200 cursor-pointer">Paket Tour</a>
+                        <a href="#keunggulan" class="block text-gray-300 hover:text-white transition duration-200 cursor-pointer">Keunggulan Program</a>
+                        <a href="#testimonial" class="block text-gray-300 hover:text-white transition duration-200 cursor-pointer">Testimonial</a>
+                        <a href="pendaftaran.html" class="block text-gray-300 hover:text-white transition duration-200 cursor-pointer">Daftar Sekarang</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 <span id="footerSiteTitle">Vinix7 Study & Business Tour</span>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <!-- Firebase Config -->
+    <script src="js/firebase-config.js"></script>
+
+    <!-- Hybrid Storage -->
+    <script src="js/hybrid-storage.js"></script>
+
+    <!-- Existing scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/status-check.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const hamburger = document.querySelector('#mobileMenuButton');
+            const navMenu = document.querySelector('#mobileMenu');
+            
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    navMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Enter key untuk cek status
+            document.getElementById('kodePendaftaran').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    cekStatus();
+                }
+            });
+
+            document.getElementById('emailRecovery').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    recoveryKode();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

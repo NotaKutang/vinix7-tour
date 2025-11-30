@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Vinix7 Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-sm z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-blue-900 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-crown text-white"></i>
+                        </div>
+                        <div>
+                            <span class="text-xl font-bold text-gray-900 font-poppins">Vinix7</span>
+                            <p class="text-xs text-gray-500 -mt-1">Admin Panel</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center space-x-1 ml-8">
+                        <a href="dashboard.html" class="px-4 py-2 text-gray-700 hover:text-blue-900 font-medium transition duration-200">
+                            <i class="fas fa-chart-bar mr-2"></i>Dashboard
+                        </a>
+                        <a href="kelola-paket.html" class="px-4 py-2 text-gray-700 hover:text-blue-900 font-medium transition duration-200">
+                            <i class="fas fa-box mr-2"></i>Paket Tour
+                        </a>
+                        <a href="kelola-peserta.html" class="px-4 py-2 text-gray-700 hover:text-blue-900 font-medium transition duration-200">
+                            <i class="fas fa-users mr-2"></i>Peserta
+                        </a>
+                        <a href="settings.html" class="px-4 py-2 bg-blue-900 text-white rounded-xl font-medium transition duration-200">
+                            <i class="fas fa-cog mr-2"></i>Settings
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <div class="hidden sm:flex items-center space-x-3 text-sm text-gray-600">
+                        <i class="fas fa-user-shield text-blue-900"></i>
+                        <span>Administrator</span>
+                    </div>
+                    <div class="relative" id="userMenu">
+                        <button class="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 rounded-xl px-3 py-2 transition duration-200">
+                            <div class="w-8 h-8 bg-blue-900 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user text-white text-sm"></i>
+                            </div>
+                            <i class="fas fa-chevron-down text-gray-600 text-xs"></i>
+                        </button>
+                        
+                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-200 py-2 hidden z-50" id="dropdownMenu">
+                            <a href="settings.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 transition duration-200">
+                                <i class="fas fa-cog mr-3"></i>Settings
+                            </a>
+                            <button onclick="adminAuth.logout()" class="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-50 transition duration-200">
+                                <i class="fas fa-sign-out-alt mr-3"></i>Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-24 pb-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold text-gray-900">Pengaturan Sistem</h1>
+                <p class="text-gray-600 mt-2">Kelola pengaturan website dan akun administrator</p>
+            </div>
+
+            <!-- Settings Tabs -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+                <!-- Tab Navigation -->
+                <div class="border-b border-gray-200">
+                    <nav class="flex -mb-px">
+                        <button id="generalTab" class="flex-1 py-4 px-6 text-center font-semibold border-b-2 border-blue-900 text-blue-900 tab-button active" data-tab="general">
+                            <i class="fas fa-cog mr-2"></i>Umum
+                        </button>
+                        <button id="paymentTab" class="flex-1 py-4 px-6 text-center font-semibold border-b-2 border-transparent text-gray-500 hover:text-gray-700 tab-button" data-tab="payment">
+                            <i class="fas fa-credit-card mr-2"></i>Pembayaran
+                        </button>
+                        <button id="securityTab" class="flex-1 py-4 px-6 text-center font-semibold border-b-2 border-transparent text-gray-500 hover:text-gray-700 tab-button" data-tab="security">
+                            <i class="fas fa-shield-alt mr-2"></i>Keamanan
+                        </button>
+                        <button id="systemTab" class="flex-1 py-4 px-6 text-center font-semibold border-b-2 border-transparent text-gray-500 hover:text-gray-700 tab-button" data-tab="system">
+                            <i class="fas fa-database mr-2"></i>Sistem
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Tab Contents -->
+                <div class="p-6">
+                    <!-- General Settings -->
+                    <div id="generalContent" class="tab-content active">
+                        <div class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Email Kontak -->
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email Kontak</label>
+                                    <input type="email" id="contactEmail" class="w-full input-field" placeholder="info@vinix7.com">
+                                </div>
+                                
+                                <!-- Nomor Telepon -->
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Nomor Telepon</label>
+                                    <input type="text" id="contactPhone" class="w-full input-field" placeholder="+62 812-3456-7890">
+                                </div>
+                            </div>
+
+                            <!-- WhatsApp Group Template -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Template Link Grup WhatsApp</label>
+                                <input type="url" id="whatsappGroup" class="w-full input-field" placeholder="https://wa.me/6281234567890">
+                                <p class="text-sm text-gray-500 mt-1">Link template yang akan dikirim ke peserta yang terverifikasi</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Settings -->
+                    <div id="paymentContent" class="tab-content">
+                        <!-- Konten payment settings tetap sama -->
+                        <div class="space-y-6">
+                            <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-exclamation-triangle text-yellow-600 mr-3 text-xl"></i>
+                                    <div>
+                                        <p class="font-medium text-yellow-900">Informasi Rekening Bank</p>
+                                        <p class="text-sm text-yellow-700">Informasi ini akan ditampilkan di halaman pendaftaran untuk transfer pembayaran</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Nama Bank</label>
+                                    <input type="text" id="bankName" class="input-field" placeholder="BCA">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Nomor Rekening</label>
+                                    <input type="text" id="bankAccount" class="input-field" placeholder="1234 5678 9012">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nama Pemilik Rekening</label>
+                                <input type="text" id="accountName" class="input-field" placeholder="PT. Vinix7 Indonesia">
+                            </div>
+
+                            <div class="bg-blue-50 rounded-xl p-4">
+                                <h3 class="font-semibold text-blue-900 mb-3">Preview Tampilan</h3>
+                                <div class="bg-white rounded-lg p-4 border border-blue-200">
+                                    <p class="font-semibold text-gray-900">Transfer ke Rekening Vinix7:</p>
+                                    <div class="mt-3 space-y-2 text-sm">
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Bank:</span>
+                                            <span id="previewBank" class="font-semibold">BCA</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">No. Rekening:</span>
+                                            <span id="previewAccount" class="font-mono font-semibold">1234 5678 9012</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Atas Nama:</span>
+                                            <span id="previewName" class="font-semibold">PT. Vinix7 Indonesia</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Settings -->
+                    <div id="securityContent" class="tab-content">
+                        <!-- Konten security settings tetap sama -->
+                        <div class="space-y-6">
+                            <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-shield-alt text-red-600 mr-3 text-xl"></i>
+                                    <div>
+                                        <p class="font-medium text-red-900">Keamanan Akun Administrator</p>
+                                        <p class="text-sm text-red-700">Ubah password untuk meningkatkan keamanan akun Anda</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Username Saat Ini</label>
+                                    <input type="text" id="currentUsername" class="input-field bg-gray-100" readonly>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email Administrator *</label>
+                                    <input type="email" id="adminEmail" class="input-field" placeholder="admin@vinix7.com" required>
+                                </div>
+                            </div>
+
+                            <div class="border-t pt-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Ubah Password</h3>
+                                <p class="text-sm text-gray-600 mb-4">Kosongkan field password jika tidak ingin mengubah password</p>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Password Saat Ini</label>
+                                        <input type="password" id="currentPassword" class="input-field" placeholder="Masukkan password saat ini">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Password Baru</label>
+                                        <input type="password" id="newPassword" class="input-field" placeholder="Minimal 6 karakter">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Konfirmasi Password Baru</label>
+                                        <input type="password" id="confirmPassword" class="input-field" placeholder="Ketik ulang password baru">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Settings -->
+                    <div id="systemContent" class="tab-content">
+                        <!-- Konten system settings tetap sama -->
+                        <div class="space-y-6">
+                            <div class="bg-purple-50 border border-purple-200 rounded-xl p-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-database text-purple-600 mr-3 text-xl"></i>
+                                    <div>
+                                        <p class="font-medium text-purple-900">Manajemen Data Sistem</p>
+                                        <p class="text-sm text-purple-700">Backup dan reset data sistem</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- System Info -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h4 class="font-semibold text-gray-900 mb-3">Informasi Sistem</h4>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Total Peserta:</span>
+                                            <span id="systemTotalPeserta" class="font-semibold">0</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Total Paket:</span>
+                                            <span id="systemTotalPaket" class="font-semibold">0</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Ukuran Data:</span>
+                                            <span id="systemDataSize" class="font-semibold">0 KB</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Versi Sistem:</span>
+                                            <span class="font-semibold">v1.0.0</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h4 class="font-semibold text-gray-900 mb-3">Status Sistem</h4>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-gray-600">Database:</span>
+                                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Aktif</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-gray-600">Storage:</span>
+                                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Local</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-gray-600">Backup:</span>
+                                            <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-medium">Manual</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-gray-600">Keamanan:</span>
+                                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Aman</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Backup & Reset -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-blue-50 rounded-xl p-6 text-center">
+                                    <i class="fas fa-download text-blue-900 text-3xl mb-4"></i>
+                                    <h4 class="font-semibold text-blue-900 mb-2">Backup Data</h4>
+                                    <p class="text-sm text-blue-700 mb-4">Download backup semua data sistem</p>
+                                    <button onclick="backupData()" class="bg-blue-900 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-xl transition duration-200 w-full">
+                                        <i class="fas fa-file-export mr-2"></i>Download Backup
+                                    </button>
+                                </div>
+
+                                <div class="bg-red-50 rounded-xl p-6 text-center">
+                                    <i class="fas fa-trash-alt text-red-900 text-3xl mb-4"></i>
+                                    <h4 class="font-semibold text-red-900 mb-2">Reset Data</h4>
+                                    <p class="text-sm text-red-700 mb-4">Hapus semua data peserta dan reset sistem</p>
+                                    <button onclick="showResetModal()" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-xl transition duration-200 w-full">
+                                        <i class="fas fa-exclamation-triangle mr-2"></i>Reset Sistem
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Import Data -->
+                            <div class="bg-green-50 rounded-xl p-6">
+                                <h4 class="font-semibold text-green-900 mb-3">Import Data</h4>
+                                <p class="text-sm text-green-700 mb-4">Upload file backup untuk restore data sistem</p>
+                                <div class="border-2 border-dashed border-green-300 rounded-xl p-6 text-center hover:border-green-400 transition duration-200">
+                                    <input type="file" id="importFile" accept=".json" class="hidden">
+                                    <i class="fas fa-upload text-green-900 text-2xl mb-3"></i>
+                                    <p class="text-green-900 font-medium mb-2">Upload File Backup</p>
+                                    <p class="text-green-700 text-sm mb-4">Format: JSON</p>
+                                    <button onclick="document.getElementById('importFile').click()" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-xl transition duration-200">
+                                        <i class="fas fa-file-import mr-2"></i>Pilih File
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Save Button -->
+                    <div class="flex justify-end pt-6 border-t">
+                        <button type="button" id="saveSettingsBtn" class="bg-blue-900 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-xl transition duration-200 flex items-center">
+                            <i class="fas fa-save mr-2"></i>Simpan Perubahan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reset Confirmation Modal -->
+    <div id="resetModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 overflow-y-auto transition-opacity duration-300">
+        <div class="min-h-screen px-4 py-8 flex items-center justify-center">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full">
+                <div class="p-6">
+                    <div class="flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mx-auto mb-4">
+                        <i class="fas fa-exclamation-triangle text-red-600 text-2xl"></i>
+                    </div>
+                    
+                    <h2 class="text-xl font-bold text-gray-900 text-center mb-4">Konfirmasi Reset Sistem</h2>
+                    
+                    <div class="bg-red-50 border border-red-200 rounded-xl p-4 mb-6">
+                        <p class="text-sm text-red-800 text-center">
+                            <strong>PERINGATAN:</strong> Tindakan ini akan menghapus semua data peserta dan tidak dapat dibatalkan!
+                        </p>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Ketik "RESET" untuk konfirmasi
+                        </label>
+                        <input type="text" id="resetConfirm" class="input-field text-center" placeholder="RESET">
+                    </div>
+
+                    <div class="flex justify-end space-x-4">
+                        <button onclick="closeResetModal()" class="btn-secondary">
+                            Batal
+                        </button>
+                        <button onclick="resetSystem()" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-xl transition duration-200">
+                            Reset Sistem
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+
+    <!-- Firebase Config (path ke root) -->
+    <script src="../js/firebase-config.js"></script>
+
+    <!-- Hybrid Storage (path ke root) -->
+    <script src="../js/hybrid-storage.js"></script>
+
+    <!-- Existing admin scripts -->
+    <script src="../js/storage.js"></script>
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin-settings.js"></script>
+</body>
+</html>
